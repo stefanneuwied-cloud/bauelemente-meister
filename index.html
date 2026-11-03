@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deine Webseite | Bauelemente & Service</title>
+    <style>
+        /* CSS-STYLING (Stil & Farben inspiriert von zega-bauelemente.de) */
+        :root {
+            --primary-color: #2c3e50; /* Dunkles Anthrazit/Blau */
+            --accent-color: #16a085;  /* Akzentfarbe für Buttons */
+            --text-color: #333333;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        header {
+            background-color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+    	    max-width: 1200px;
+    	    height: 90px;
+    	    margin: 0 auto;
+    	    display: flex;
+    	    justify-content: space-between;
+    	    align-items: center;
+    	    padding: 10px 20px;
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .logo img {
+            height: 110px;
+            width: auto;
+            display: block;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero / Banner */
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url("header.jpg") no-repeat center center/cover;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #117a65;
+        }
+
+        /* Sektionen allgemein */
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #777;
+            margin-bottom: 50px;
+        }
+
+        /* Leistungen Grid */
+        .grid-container {
+            display: grid;
+            grid-template-columns: minmax(250px, 500px);
+            justify-content: center;
+	    gap: 30px;
+        }
+
+        .grid-item {
+            background-color: var(--white);
+            border: 2px solid #e1e1e1;
+            text-align: center;
+	    padding: 30px;
+            border-radius: 4px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .grid-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .grid-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        /* Über uns (2-Spalten-Layout) */
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 4px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Call to Action Box */
+        .cta-banner {
+            background-color: var(--light-bg);
+            text-align: center;
+            padding: 50px 20px;
+            border-left: 5px solid var(--accent-color);
+            margin: 40px auto;
+        }
+
+        /* Kontakt */
+        .contact-container {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+        }
+
+        /* Fußzeile */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .footer-links {
+            margin-top: 15px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        /* Responsive Anpassung für Smartphones */
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 15px; }
+            .logo img { height: 60px; max-width: min(260px, 90vw); }
+            nav ul li { margin: 0 10px; }
+            .hero-content h1 { font-size: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. NAVIGATION -->
+    <header>
+        <div class="nav-container">
+            <a href="#home" class="logo" aria-label="Bauelemente Meister – Startseite"><img src="logo.png" alt="Bauelemente Meister – Fenster, Türen und Sonnenschutz"></a>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#leistungen">Leistungen</a></li>
+                    <li><a href="#ueber-uns">Über uns</a></li>
+                    <li><a href="#kontakt">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 2. HERO / STARTBEREICH -->
+    <div id="home" class="hero">
+        <div class="hero-content">
+            <h1>Dein Profi für hochwertige Projekte</h1>
+            <p<b>Ob gewerblich oder privat, wir bieten maßgeschneiderte Lösungen für jedes Projekt.<br> Qualität, Flexibilität und jahrelange Erfahrung.</b></p>
+            <a href="#kontakt" class="btn">Jetzt Kontakt aufnehmen</a>
+        </div>
+    </div>
+    
+    <!-- 3. LEISTUNGEN (Das 4-Boxen-Grid) -->
+    <section id="leistungen">
+        <h2>Unsere Leistungen</h2>
+        <p class="section-subtitle"><b>Qualität aus Meisterhand – alles aus einer Hand</b></p>
+        
+        <div class="grid-container">
+            <div class="grid-item">
+                <h3></h3>
+                <strong>Fenster</strong><br>
+        	<strong>Türen</strong><br>
+        	<strong>Sonnenschutz</strong><br>
+        	<strong>Perguladach</strong><br>
+        	<strong>Carport</strong><br>
+        	<strong>Glas Geländer</strong><br>
+        	<strong>Garagentore</strong><br>
+        	<strong>Kaltwintergarten</strong><br>
+            </div>
+                    </div>
+    </section>
+
+    <!-- 4. ÜBER UNS (Zwei Spalten: Text & Bild) -->
+    <section id="ueber-uns" style="background-color: var(--light-bg); max-width: 100%;">
+        <div style="max-width: 1200px; margin: 0 auto;" class="about-container">
+            <div class="about-text">
+                <h2>Über uns</h2>
+                <p style="margin-top: 20px; margin-bottom: 20px;">
+                    Schreibe hier ein paar persönliche Worte über dein Unternehmen, deine Philosophie oder deine Geschichte. Was unterscheidet dich? Warum sollten Kunden dir vertrauen?
+                </p>
+                <p>
+                    Lassen Sie uns Ihrer Umgebung mehr Persönlichkeit geben. Bei uns sind Sie genau richtig! Wir begleiten Sie von der Beratung bis zur finalen Umsetzung.
+                </p>
+            </div>
+            <div class="about-image">
+                <img src="auto.png" alt="Über uns">
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. CALL TO ACTION BANNER -->
+    <div class="cta-banner" style="max-width: 1200px;">
+        <h3>Planen Sie ein neues Projekt?</h3>
+        <p style="margin-bottom: 20px; margin-top: 10px;">Wir freuen uns darauf, von Ihnen zu hören und helfen Ihnen gerne unverbindlich weiter.</p>
+        <a href="#kontakt" class="btn">Mehr erfahren</a>
+    </div>
+
+    <!-- 6. KONTAKT & IMPRESSUM -->
+    <section id="kontakt">
+        <h2>Kontakt</h2>
+        <p class="section-subtitle">Wir sind für Sie da</p>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Firmensitz & Erreichbarkeit</h3>
+                <p><strong>Bauelemente Meister</strong></p>
+                <p>Am Berg 8, </p>
+                <p>56729 Kehrig</p>
+                <p>Deutschland</p>
+                <p style="margin-top: 20px;"><strong>Telefon: </strong>0171-5834159</p>
+                <p><strong>E-Mail:</strong><a href="mailto:bauelemente.meister@web.de">
+        bauelemente.meister@web.de
+    </a></p>
+            </div>
+            <div class="contact-info">
+                <h3>Schreiben Sie uns direkt</h3>
+                <p>Sie möchten mehr über unsere Leistungen erfahren oder wünschen eine persönliche Beratung? Wir freuen uns darauf, von Ihnen zu hören.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 – Bauelemente Meister. Alle Rechte vorbehalten.</p>
+        <div class="footer-links">
+            <a href="#">Impressum</a> | <a href="#">Datenschutz</a>
+        </div>
+    </footer>
+
+</body>
+</html>
